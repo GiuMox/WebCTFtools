@@ -46,7 +46,7 @@ class XSSLocalFuzzer:
 
                 trigger = f"fetch('{test_endpoint}?id={idx}&p={b64_p}')"
                 
-                final_js = p.replace("alert(1)", trigger)
+                final_js = p.replace("alert(1)", trigger).replace("print()", trigger)
                 js_payloads_array.append(final_js)
 
             html_template = """
